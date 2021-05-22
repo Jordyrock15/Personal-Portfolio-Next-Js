@@ -13,7 +13,7 @@ export default function Layout({ title, keywords, description, children }) {
 			</Head>
 			<Header />
 			<Container>{children}</Container>
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 }
@@ -25,6 +25,7 @@ Layout.defaultProps = {
 };
 
 const Container = styled.div`
-	min-height: 100vh;
+	max-height: 100vh;
 	background: #1e1e1e;
+	margin: 0 15vw;
 `;

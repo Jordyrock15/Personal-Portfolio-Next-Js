@@ -5,7 +5,9 @@ import styled from 'styled-components';
 export default function Header() {
 	return (
 		<Container>
-			<Image src='/navbar_logo.svg' width={96} height={96} alt='Navbar Logo' />
+			<Link href='/'>
+				<Image src='/navbar_logo.svg' width={85} height={85} alt='Navbar Logo' />
+			</Link>
 
 			<nav>
 				<Ul>
