@@ -49,14 +49,12 @@ const H1 = styled.h1`
 	font-size: 5rem;
 	line-height: 4rem;
 	font-weight: bold;
-	margin: 0;
 `;
 
 const H2 = styled.h2`
 	font-size: 2.5rem;
 	position: relative;
 	top: ${(props) => (props.down ? props.down : 0)};
-	margin: 0;
 	font-weight: bold;
 `;
 
