@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export default function AboutMe() {
 	return (
 		<Container>
-			<H1>&#60;&#62;</H1>
 			<TextContainer>
 				<H2>&#60; Get to know me /&#62;</H2>
 				<P>
@@ -19,7 +18,7 @@ export default function AboutMe() {
 
 const Container = styled.div`
 	color: #fcfcfc;
-	margin-top: 15rem;
+	margin-top: 5rem;
 `;
 
 const H1 = styled.h1`
@@ -30,6 +29,9 @@ const H1 = styled.h1`
 
 const TextContainer = styled.div`
 	margin-left: 4rem;
+	@media (max-width: 730px) {
+		margin-left: 0;
+	}
 `;
 
 const H2 = styled.h2`

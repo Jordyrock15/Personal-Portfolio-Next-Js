@@ -1,0 +1,31 @@
+{
+	"Tech": [
+		{
+			"ID": 0,
+			"name": "Frameworks",
+			"screenshots": [
+				{ "Image": "/react_icon.png", "Width": 88, "Height": 121 },
+				{ "Image": "/nextjs_icon.png", "Width": 89, "Height": 127 }
+			],
+			"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit Praesentium non animi, doloremque exercitationem mollitia"
+		},
+		{
+			"ID": 1,
+			"name": "Library",
+			"screenshots": [
+				{ "Image": "/bootstrap_icon.png", "Width": 120, "Height": 122 },
+				{ "Image": "/tailwind_icon.png", "Width": 139, "Height": 123 }
+			],
+			"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit Praesentium non animi, doloremque exercitationem mollitia"
+		},
+		{
+			"ID": 2,
+			"name": "Library",
+			"screenshots": [
+				{ "Image": "/firebase_icon.png", "Width": 102, "Height": 127 },
+				{ "Image": "/git_icon.png", "Width": 89, "Height": 125 }
+			],
+			"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit Praesentium non animi, doloremque exercitationem mollitia"
+		}
+	]
+}

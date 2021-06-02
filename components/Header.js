@@ -6,16 +6,27 @@ export default function Header() {
 	return (
 		<Container>
 			<Link href='/'>
-				<Image src='/navbar_logo.svg' width={85} height={85} alt='Navbar Logo' />
+				<a>
+					<Image src='/navbar_logo.svg' width={85} height={85} alt='Navbar Logo' />
+				</a>
 			</Link>
 
 			<nav>
 				<Ul>
 					<Li>
-						<Link href='#'>Blog</Link>
+						<Link href='/'>
+							<a>Home</a>
+						</Link>
 					</Li>
 					<Li>
-						<Link href='/portfolio'>Portfolio</Link>
+						<Link href='/'>
+							<a>Blog</a>
+						</Link>
+					</Li>
+					<Li>
+						<Link href='/portfolio'>
+							<a>Portfolio</a>
+						</Link>
 					</Li>
 				</Ul>
 			</nav>
