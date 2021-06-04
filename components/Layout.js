@@ -11,7 +11,7 @@ export default function Layout({ title, keywords, description, children }) {
 				<meta name='description' content={description} />
 				<meta name='keywords' content={keywords} />
 			</Head>
-			{/* <Header /> */}
+			<Header />
 			<Container>{children}</Container>
 			<Footer />
 		</div>
@@ -30,6 +30,6 @@ const Container = styled.div`
 	margin: 0 15vw;
 
 	@media (max-width: 500px) {
-		margin: 0 2rem;
+		margin: 0 9vw;
 	}
 `;

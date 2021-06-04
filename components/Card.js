@@ -4,10 +4,13 @@ export default function Card({
 	desc,
 	image1,
 	image2,
+	image3,
 	image1Width,
 	image1Height,
 	image2Width,
 	image2Height,
+	image3Width,
+	image3Height,
 }) {
 	return (
 		<div>
@@ -17,14 +20,21 @@ export default function Card({
 						src={`${image1}`}
 						height={image1Height}
 						width={image1Width}
-						mr='0.5rem'
+						mr={image3 === undefined ? '0.5rem' : ''}
 					/>
+					{image3 !== undefined && (
+						<ImageContainer
+							src={`${image3}`}
+							height={image3Height}
+							width={image3Width}
+						/>
+					)}
 
 					<ImageContainer
 						src={`${image2}`}
 						height={image2Height}
 						width={image2Width}
-						ml='0.5rem'
+						ml={image3 === undefined ? '0.5rem' : ''}
 					/>
 				</div>
 				<p>{desc}</p>
@@ -39,16 +49,20 @@ const CardContainer = styled.div`
 	border-radius: 20px;
 	border-radius: 40px;
 	width: 20rem;
-	height: 20rem;
+	min-height: 20rem;
 	color: #fcfcfc;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 0px 20px;
+	padding: 10px 20px;
 	text-align: center;
 	margin-top: 2rem;
 	border: 2px solid #0d6eff;
+
+	@media (max-width: 370px) {
+		width: 18rem;
+	}
 `;
 
 const ImageContainer = styled.img`

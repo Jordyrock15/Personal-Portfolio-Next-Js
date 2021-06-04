@@ -1,8 +1,12 @@
 import styled from 'styled-components';
-import styles from '../styles/TopComponents.module.scss';
+
 import Image from 'next/image';
+import useWindowDimensions from '../Hooks/useWindowDimensions';
 
 export default function TopComponent() {
+	const { height, width } = useWindowDimensions();
+	console.log(width);
+
 	return (
 		<Container>
 			<TitleContainer>
@@ -23,14 +27,9 @@ export default function TopComponent() {
 					</Button>
 				</ButtonContainer>
 			</TitleContainer>
-
-			<img
-				src='/navbar_logo.svg'
-				height={500}
-				width={500}
-				layout='fixed'
-				className={styles.ImageRemove}
-			/>
+			{width > 990 && (
+				<Image src='/navbar_logo.svg' height={500} width={500} layout='fixed' />
+			)}
 		</Container>
 	);
 }

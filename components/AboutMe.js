@@ -21,12 +21,6 @@ const Container = styled.div`
 	margin-top: 5rem;
 `;
 
-const H1 = styled.h1`
-	font-size: 4rem;
-	font-weight: bold;
-	font-family: 'Montserrat', sans-serif;
-`;
-
 const TextContainer = styled.div`
 	margin-left: 4rem;
 	@media (max-width: 730px) {
@@ -38,10 +32,31 @@ const H2 = styled.h2`
 	font-size: 2.5rem;
 	font-weight: bold;
 	font-family: 'Montserrat', sans-serif;
+
+	@media (max-width: 630px) {
+		font-size: 2rem;
+	}
+
+	@media (max-width: 420px) {
+		font-size: 1.7rem;
+		margin-bottom: 0.5rem;
+	}
+
+	@media (max-width: 350px) {
+		font-size: 1.6rem;
+	}
+
+	@media (max-width: 330px) {
+		font-size: 1.5rem;
+	}
 `;
 
 const P = styled.p`
 	font-size: 1.2rem;
 	font-weight: normal;
 	font-family: 'Open Sans', sans-serif;
+
+	@media (max-width: 630px) {
+		font-size: 1rem;
+	}
 `;
