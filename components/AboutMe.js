@@ -1,9 +1,21 @@
 import styled from 'styled-components';
+import { scrollReveal } from '../utils/animations';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 export default function AboutMe() {
+	const controls = useAnimation();
+	const [ref, inView] = useInView();
+
+	useEffect(() => {
+		if (inView) {
+			controls.start('show');
+		}
+	}, [controls, inView]);
 	return (
 		<Container>
-			<TextContainer>
+			<TextContainer variants={scrollReveal} ref={ref} animate={controls} initial='hidden'>
 				<H2>&#60; Get to know me /&#62;</H2>
 				<P>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis erat pellentesque
@@ -18,10 +30,10 @@ export default function AboutMe() {
 
 const Container = styled.div`
 	color: #fcfcfc;
-	margin-top: 5rem;
+	margin-top: 6rem;
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled(motion.div)`
 	margin-left: 4rem;
 	@media (max-width: 730px) {
 		margin-left: 0;

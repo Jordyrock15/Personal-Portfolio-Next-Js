@@ -3,10 +3,25 @@ import styled from 'styled-components';
 import Image from 'next/image';
 const { Tech } = require('../Data/TechStackData.json');
 
+import { scrollRevealChildren, scrollRevealRight } from '../utils/animations';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+
 export default function CardSection() {
+	const controls = useAnimation();
+	const [ref, inView] = useInView();
+
+	useEffect(() => {
+		if (inView) {
+			controls.start('show');
+		}
+	}, [controls, inView]);
 	return (
 		<Container>
-			<H2>&#60; My Tools /&#62;</H2>
+			<H2 variants={scrollRevealRight} ref={ref} animate={controls} initial='hidden'>
+				&#60; My Tools /&#62;
+			</H2>
 			<CardContainer>
 				{Tech.map((data) => (
 					<Card
@@ -28,7 +43,7 @@ export default function CardSection() {
 	);
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 	margin-left: 4rem;
 	margin-top: 5rem;
 	@media (max-width: 730px) {
@@ -36,14 +51,14 @@ const Container = styled.div`
 	}
 `;
 
-const CardContainer = styled.div`
+const CardContainer = styled(motion.div)`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	align-items: center;
 `;
 
-const H2 = styled.h2`
+const H2 = styled(motion.h2)`
 	color: #fcfcfc;
 	font-size: 2.5rem;
 	font-weight: bold;

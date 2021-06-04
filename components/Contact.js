@@ -1,9 +1,20 @@
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
+import { scrollRevealRight } from '../utils/animations';
 
 export default function Contact() {
+	const controls = useAnimation();
+	const [ref, inView] = useInView();
+	useEffect(() => {
+		if (inView) {
+			controls.start('show');
+		}
+	}, [controls, inView]);
 	return (
 		<div>
-			<Container>
+			<Container variants={scrollRevealRight} ref={ref} animate={controls} initial='hidden'>
 				<H2>&#60; Contact /&#62;</H2>
 				<TextContainer>
 					<P>Need to get in touch?</P>
@@ -32,7 +43,7 @@ const H2 = styled.h2`
 	}
 `;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 	color: #fcfcfc;
 	margin-top: 10rem;
 	margin-bottom: 4rem;

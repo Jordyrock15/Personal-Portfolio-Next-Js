@@ -2,31 +2,35 @@ import styled from 'styled-components';
 
 import Image from 'next/image';
 import useWindowDimensions from '../Hooks/useWindowDimensions';
+import { motion } from 'framer-motion';
+import { BorderAnimation, BorderAnimationChildren, SlideInLeft } from '../utils/animations';
 
 export default function TopComponent() {
 	const { height, width } = useWindowDimensions();
 	console.log(width);
 
 	return (
-		<Container>
-			<TitleContainer>
-				<H2>
-					<Span>Hi</Span>, I'm
-				</H2>
-				<H1>Jordan Barrand.</H1>
-				<H2 mb='1rem'>
-					&#60; Web <Span>Developer</Span> /&#62;
-				</H2>
+		<Container variants={BorderAnimation} animate='show' initial='hidden'>
+			<Hide>
+				<TitleContainer>
+					<H2 variants={BorderAnimationChildren}>
+						<Span>Hi</Span>, I'm
+					</H2>
+					<H1 variants={BorderAnimationChildren}>Jordan Barrand.</H1>
+					<H2 mb='1rem' variants={BorderAnimationChildren}>
+						&#60; Web <Span>Developer</Span> /&#62;
+					</H2>
 
-				<ButtonContainer>
-					<Button bg_color='#0D6EFF' color='#FCFCFC'>
-						Get In Touch
-					</Button>
-					<Button bg_color='#FCFCFC' color='#0D6EFF' margin_left='1rem'>
-						My Work
-					</Button>
-				</ButtonContainer>
-			</TitleContainer>
+					<ButtonContainer variants={BorderAnimationChildren}>
+						<Button bg_color='#0D6EFF' color='#FCFCFC'>
+							Get In Touch
+						</Button>
+						<Button bg_color='#FCFCFC' color='#0D6EFF' margin_left='1rem'>
+							My Work
+						</Button>
+					</ButtonContainer>
+				</TitleContainer>
+			</Hide>
 			{width > 990 && (
 				<Image src='/navbar_logo.svg' height={500} width={500} layout='fixed' />
 			)}
@@ -34,8 +38,7 @@ export default function TopComponent() {
 	);
 }
 
-const Container = styled.div`
-	padding-left: 6rem;
+const Container = styled(motion.div)`
 	border-left: 8px solid #0d6eff;
 	font-family: 'Montserrat', sans-serif;
 	display: flex;
@@ -62,23 +65,33 @@ const Container = styled.div`
 	}
 `;
 
-const TitleContainer = styled.div`
+const TitleContainer = styled(motion.div)`
 	color: #fcfcfc;
 	max-width: 32rem;
+
 	font-family: 'Montserrat', sans-serif;
+`;
+
+const Hide = styled.div`
+	overflow: hidden;
 `;
 
 const Span = styled.span`
 	color: #0d6eff;
 `;
 
-const H1 = styled.h1`
+const H1 = styled(motion.h1)`
+	padding-left: 6rem;
 	font-size: 5rem;
 	line-height: 4rem;
 	font-weight: bold;
 
 	@media (max-width: 1370px) {
 		font-size: 4rem;
+	}
+
+	@media (max-width: 1130px) {
+		padding-left: 0;
 	}
 
 	@media (max-width: 990px) {
@@ -100,8 +113,9 @@ const H1 = styled.h1`
 	}
 `;
 
-const H2 = styled.h2`
+const H2 = styled(motion.h2)`
 	font-size: 2.5rem;
+	padding-left: 6rem;
 	position: relative;
 	top: ${(props) => (props.down ? props.down : 0)};
 	font-weight: bold;
@@ -109,6 +123,10 @@ const H2 = styled.h2`
 
 	@media (max-width: 1370px) {
 		font-size: 2rem;
+	}
+
+	@media (max-width: 1130px) {
+		padding-left: 0;
 	}
 
 	@media (max-width: 990px) {
@@ -160,10 +178,15 @@ const Button = styled.button`
 	}
 `;
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled(motion.div)`
+	padding-left: 6rem;
 	display: flex;
 	@media (max-width: 1250px) {
 		flex-direction: column;
+	}
+
+	@media (max-width: 1130px) {
+		padding-left: 0;
 	}
 
 	@media (max-width: 990px) {

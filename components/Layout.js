@@ -2,7 +2,9 @@ import Head from 'next/head';
 import Header from './Header';
 import styled from 'styled-components';
 import Footer from './Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import LoadingSpinner from './LoadingSpinner';
+import { motion } from 'framer-motion';
 
 export default function Layout({ title, keywords, description, children }) {
 	return (
@@ -12,6 +14,7 @@ export default function Layout({ title, keywords, description, children }) {
 				<meta name='description' content={description} />
 				<meta name='keywords' content={keywords} />
 			</Head>
+
 			<Header />
 			<Container>{children}</Container>
 			<Footer />
@@ -34,3 +37,5 @@ const Container = styled.div`
 		margin: 0 9vw;
 	}
 `;
+
+const OverallContainer = styled(motion.div)``;

@@ -1,37 +1,40 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import useWindowDimensions from '../Hooks/useWindowDimensions';
+import { motion } from 'framer-motion';
+import { SlideInRight, SlideInUp } from '../utils/animations';
+import ActiveLink from './ActiveLink';
 
 export default function Header() {
 	return (
 		<Container>
 			<Link href='/'>
-				<a>
+				<motion.a variants={SlideInRight} animate='show' initial='hidden'>
 					<Image src='/navbar_logo.svg' width={85} height={85} alt='Navbar Logo' />
-				</a>
+				</motion.a>
 			</Link>
 
-			<Nav>
-				<Ul>
-					<Li>
-						<Link href='/'>
-							<a>Home</a>
-						</Link>
-					</Li>
-					<Li>
-						<Link href='/portfolio'>
-							<a>Portfolio</a>
-						</Link>
-					</Li>
-					<Li>
-						<Link href='/'>
-							<a>Blog</a>
-						</Link>
-					</Li>
-				</Ul>
-			</Nav>
+			<Hide>
+				<Nav variants={SlideInUp} animate='show' initial='hidden'>
+					<Ul>
+						<Li>
+							<Link activeClassName='active' href='/'>
+								<a>Home</a>
+							</Link>
+						</Li>
+						<Li>
+							<Link activeClassName='active' href='/portfolio'>
+								<a>Portfolio</a>
+							</Link>
+						</Li>
+						<Li>
+							<Link href='/'>
+								<a>Blog</a>
+							</Link>
+						</Li>
+					</Ul>
+				</Nav>
+			</Hide>
 		</Container>
 	);
 }
@@ -53,7 +56,11 @@ const Container = styled.header`
 	}
 `;
 
-const Nav = styled.nav`
+const Hide = styled.div`
+	overflow: hidden;
+`;
+
+const Nav = styled(motion.nav)`
 	@media (max-width: 700px) {
 		width: 20rem;
 		margin-top: 0.5rem;

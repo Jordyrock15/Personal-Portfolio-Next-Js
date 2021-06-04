@@ -1,4 +1,8 @@
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
+import { scrollRevealChildren } from '../utils/animations';
 
 export default function Card({
 	desc,
@@ -12,9 +16,22 @@ export default function Card({
 	image3Width,
 	image3Height,
 }) {
+	const controls = useAnimation();
+	const [ref, inView] = useInView();
+	useEffect(() => {
+		if (inView) {
+			controls.start('show');
+		}
+	}, [controls, inView]);
+
 	return (
 		<div>
-			<CardContainer>
+			<CardContainer
+				variants={scrollRevealChildren}
+				ref={ref}
+				animate={controls}
+				initial='hidden'
+			>
 				<div>
 					<ImageContainer
 						src={`${image1}`}
@@ -43,7 +60,7 @@ export default function Card({
 	);
 }
 
-const CardContainer = styled.div`
+const CardContainer = styled(motion.div)`
 	background: #1e1e1e;
 	border-radius: 20px;
 	border-radius: 20px;
