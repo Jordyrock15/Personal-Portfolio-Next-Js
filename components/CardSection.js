@@ -51,11 +51,6 @@ const H2 = styled.h2`
 	margin-bottom: 3rem;
 
 	@media (max-width: 630px) {
-		font-size: 2rem;
-		margin-bottom: 2rem;
-	}
-
-	@media (max-width: 420px) {
 		font-size: 1.7rem;
 		margin-bottom: 1rem;
 	}

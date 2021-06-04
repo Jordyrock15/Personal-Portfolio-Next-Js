@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from './Header';
 import styled from 'styled-components';
 import Footer from './Footer';
+import { useState } from 'react';
 
 export default function Layout({ title, keywords, description, children }) {
 	return (

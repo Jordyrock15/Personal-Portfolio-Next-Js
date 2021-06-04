@@ -52,11 +52,13 @@ const Container = styled.div`
 		justify-content: center;
 		align-items: center;
 	}
-`;
 
-const ImageRemove = styled.div`
 	@media (max-width: 990px) {
-		display: none;
+		margin-top: 5rem;
+	}
+
+	@media (max-width: 700px) {
+		margin-top: 3rem;
 	}
 `;
 

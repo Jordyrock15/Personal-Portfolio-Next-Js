@@ -34,10 +34,6 @@ const H2 = styled.h2`
 	font-family: 'Montserrat', sans-serif;
 
 	@media (max-width: 630px) {
-		font-size: 2rem;
-	}
-
-	@media (max-width: 420px) {
 		font-size: 1.7rem;
 		margin-bottom: 0.5rem;
 	}

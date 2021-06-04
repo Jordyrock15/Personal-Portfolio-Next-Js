@@ -24,10 +24,19 @@ const Paragraph = styled.p`
 	color: #959595;
 	display: flex;
 	align-items: center;
+
+	@media (max-width: 375px) {
+		font-size: 0.8rem;
+	}
 `;
 
 const Span = styled.span`
 	color: #0d6eff;
 	font-size: 2rem;
 	margin-right: 0.5rem;
+	align-self: center;
+
+	@media (max-width: 375px) {
+		font-size: 1.8rem;
+	}
 `;
