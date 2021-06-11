@@ -8,18 +8,19 @@ export default function BlogItem({ blog }) {
 	return (
 		<Layout>
 			<Container>
-				<h1>{blog.Headline}</h1>
-				<h2>
+				<H1>{blog.Headline}</H1>
+				<H2>{blog.ShortHeadline}</H2>
+				{/* <h3>
 					{blog.date} {blog.TypeOfBlog}
-				</h2>
+				</h3> */}
 				<Image
-					src={`${blog.image.formats.medium.url}`}
-					width={blog.image.formats.medium.width}
-					height={blog.image.formats.medium.height}
+					src={`${blog.image.formats.large.url}`}
+					width={blog.image.formats.large.width}
+					height={blog.image.formats.large.height}
 				/>
-				<div>
-					<ReactMarkdown>{blog.content}</ReactMarkdown>
-				</div>
+				<TextContainer>
+					<ReactMarkdown children={blog.content}></ReactMarkdown>
+				</TextContainer>
 			</Container>
 		</Layout>
 	);
@@ -27,6 +28,24 @@ export default function BlogItem({ blog }) {
 
 const Container = styled.div`
 	color: #fcfcfc;
+	margin-top: 2rem;
+`;
+
+const H1 = styled.h1`
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 3.5rem;
+`;
+
+const H2 = styled.h2`
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+	font-size: 2rem;
+	margin-bottom: 2rem;
+`;
+
+const TextContainer = styled.div`
+	font-family: 'Open Sans', sans-serif;
 	margin-top: 2rem;
 `;
 

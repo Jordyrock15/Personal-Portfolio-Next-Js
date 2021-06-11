@@ -3,10 +3,13 @@ import fetchFromStrapi from '../../lib/service';
 import Image from 'next/image';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+import { useState } from 'react';
 
-export default function PortfolioItem({ portfolioArray, teamPortfolioItem }) {
-	console.log(teamPortfolioItem);
+export default function PortfolioItem({ portfolioArray }) {
+	const [isModal, setIsModal] = useState(false);
+	const [indexNumber, setIndexNumber] = useState(null);
 
+	console.log(portfolioArray);
 	return (
 		<Layout>
 			<Container>
@@ -20,6 +23,30 @@ export default function PortfolioItem({ portfolioArray, teamPortfolioItem }) {
 					<ReactMarkdown>{portfolioArray.content}</ReactMarkdown>
 				</DescContainer>
 			</Container>
+
+			<H2>Screenshots</H2>
+			<ScreenshotContainer>
+				{portfolioArray.Screenshots.map((screenshot, index) => (
+					<Image
+						src={`${screenshot.formats.thumbnail.url}`}
+						width={screenshot.formats.thumbnail.width}
+						height={screenshot.formats.thumbnail.height}
+						onClick={() => setIndexNumber(index)}
+						key={screenshot.formats.thumbnail.url}
+					/>
+				))}
+			</ScreenshotContainer>
+			{indexNumber !== null && (
+				<div>
+					{console.log(indexNumber)}
+					<Image
+						src={`${portfolioArray.Screenshots[indexNumber].formats.large.url}`}
+						width={portfolioArray.Screenshots[indexNumber].formats.large.width}
+						height={portfolioArray.Screenshots[indexNumber].formats.large.height}
+					/>
+				</div>
+			)}
+
 			<ButtonContainer>
 				<Button color='#fcfcfc' bg='#0d6eff'>
 					Live Website
@@ -36,11 +63,23 @@ const Container = styled.div`
 	color: #fcfcfc;
 `;
 
+const ScreenshotContainer = styled.div`
+	margin-top: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+`;
+
 const H1 = styled.h1`
 	font-family: 'Montserrat', sans-serif;
 	font-size: 3rem;
 	margin-bottom: 2rem;
 	margin-top: 2rem;
+`;
+
+const H2 = styled.h2`
+	margin-top: 2rem;
+	color: #fcfcfc;
 `;
 
 const DescContainer = styled.div`
