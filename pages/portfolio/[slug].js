@@ -11,11 +11,11 @@ export default function PortfolioItem({ portfolioArray, teamPortfolioItem }) {
 		<Layout>
 			<Container>
 				<H1>{portfolioArray.Headline}</H1>
-				{/* <Image
-					src={`${portfolioArray.image[0].formats.large.url}`}
-					width={portfolioArray.image[0].formats.large.width}
-					height={portfolioArray.image[0].formats.large.height}
-				/> */}
+				<Image
+					src={`${portfolioArray.image.formats.large.url}`}
+					width={portfolioArray.image.formats.large.width}
+					height={portfolioArray.image.formats.large.height}
+				/>
 				<DescContainer>
 					<ReactMarkdown>{portfolioArray.content}</ReactMarkdown>
 				</DescContainer>

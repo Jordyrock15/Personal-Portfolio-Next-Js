@@ -2,23 +2,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-export default function BlogCard({ blogs }) {
+export default function FeatureBlogCard({ blog }) {
+	console.log(blog);
 	return (
-		<Container width={blogs.image.formats.small.width}>
+		<Container>
 			<Image
-				src={`${blogs.image.formats.small.url}`}
-				width={blogs.image.formats.small.width}
-				height={blogs.image.formats.small.height}
+				src={`${blog.image.formats.medium.url}`}
+				width={blog.image.formats.medium.width}
+				height={blog.image.formats.medium.height}
 			/>
 			<TextContainer>
 				<TagContainer>
-					<Tag>{blogs.TypeOfBlog}</Tag>
-					<Date>{blogs.date}</Date>
+					<Tag>{blog.TypeOfBlog}</Tag>
+					<Date>{blog.date}</Date>
 				</TagContainer>
 
-				<H1>{blogs.Headline}</H1>
-				<Description>{blogs.BlogDescription}</Description>
-				<Link as={`/blog/${blogs.slug}`} href='/blog/[id]'>
+				<H1>{blog.Headline}</H1>
+				<Description>{blog.BlogDescription}</Description>
+				<Link as={`/blog/${blog.slug}`} href='/blog/[id]'>
 					<Button>Read More</Button>
 				</Link>
 			</TextContainer>
@@ -28,7 +29,7 @@ export default function BlogCard({ blogs }) {
 
 const Container = styled.div`
 	display: flex;
-	margin-bottom: 2rem;
+	margin-bottom: 4rem;
 `;
 
 const TagContainer = styled.h2`
