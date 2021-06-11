@@ -5,13 +5,36 @@ const { PersonalData } = require('../../Data/DummyData.json');
 import fetchFromStrapi from '../../lib/service';
 import Link from 'next/link';
 
-export default function Portfolio({ portfolioItems }) {
-	console.log(portfolioItems);
+export default function Portfolio({ portfolioItems, teamPortfolioItems, coursePortfolioItems }) {
 	return (
 		<Layout>
 			<H1>Personal Projects</H1>
 			<CardContainer>
 				{portfolioItems.map((data) => (
+					<PortfolioCard
+						key={data.id}
+						name={data.Headline}
+						points={data.TechStack}
+						slug={data.slug}
+					/>
+				))}
+			</CardContainer>
+
+			<H1>Team Projects</H1>
+			<CardContainer>
+				{teamPortfolioItems.map((data) => (
+					<PortfolioCard
+						key={data.id}
+						name={data.Headline}
+						points={data.TechStack}
+						slug={data.slug}
+					/>
+				))}
+			</CardContainer>
+
+			<H1>Course Projects</H1>
+			<CardContainer>
+				{coursePortfolioItems.map((data) => (
 					<PortfolioCard
 						key={data.id}
 						name={data.Headline}
@@ -26,8 +49,11 @@ export default function Portfolio({ portfolioItems }) {
 
 export async function getStaticProps() {
 	const portfolioItems = await fetchFromStrapi('portfolios');
+	const teamPortfolioItems = await fetchFromStrapi('team-portfolios');
+	const coursePortfolioItems = await fetchFromStrapi('course-portfolios');
+
 	return {
-		props: { portfolioItems },
+		props: { portfolioItems, teamPortfolioItems, coursePortfolioItems },
 		revalidate: 1,
 	};
 }

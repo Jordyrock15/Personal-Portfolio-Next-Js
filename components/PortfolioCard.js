@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export default function PortfolioCard({ name, points, slug }) {
 	let techstacksplit = points.split(' ');
-	console.log(techstacksplit);
 
 	return (
 		<Card>
