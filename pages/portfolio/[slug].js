@@ -2,21 +2,32 @@ import Layout from '../../components/Layout';
 import fetchFromStrapi from '../../lib/service';
 import Image from 'next/image';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 export default function PortfolioItem({ portfolioArray, teamPortfolioItem }) {
 	console.log(teamPortfolioItem);
-	console.log(portfolioArray.image[0].formats.thumbnail.url);
+
 	return (
 		<Layout>
 			<Container>
 				<H1>{portfolioArray.Headline}</H1>
-				<Image
+				{/* <Image
 					src={`${portfolioArray.image[0].formats.large.url}`}
 					width={portfolioArray.image[0].formats.large.width}
 					height={portfolioArray.image[0].formats.large.height}
-				/>
-				<p>{portfolioArray.content}</p>
+				/> */}
+				<DescContainer>
+					<ReactMarkdown>{portfolioArray.content}</ReactMarkdown>
+				</DescContainer>
 			</Container>
+			<ButtonContainer>
+				<Button color='#fcfcfc' bg='#0d6eff'>
+					Live Website
+				</Button>
+				<Button color='#0d6eff' bg='#fcfcfc' ml='1rem'>
+					Source Code
+				</Button>
+			</ButtonContainer>
 		</Layout>
 	);
 }
@@ -29,6 +40,31 @@ const H1 = styled.h1`
 	font-family: 'Montserrat', sans-serif;
 	font-size: 3rem;
 	margin-bottom: 2rem;
+	margin-top: 2rem;
+`;
+
+const DescContainer = styled.div`
+	font-family: 'Open Sans', sans-serif;
+	margin-top: 2rem;
+`;
+
+const ButtonContainer = styled.div`
+	display: flex;
+	margin-top: 2rem;
+`;
+
+const Button = styled.button`
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	background: ${(props) => (props.bg ? props.bg : '')};
+	outline: none;
+	border: none;
+	color: ${(props) => (props.color ? props.color : '')};
+	padding: 5px 15px;
+	border-radius: 8px;
+	bottom: 10px;
+	cursor: pointer;
+	margin-left: ${(props) => (props.ml ? props.ml : '')};
 `;
 
 export async function getStaticPaths() {

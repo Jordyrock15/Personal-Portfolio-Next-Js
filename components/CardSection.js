@@ -25,7 +25,6 @@ export default function CardSection() {
 			<CardContainer>
 				{Tech.map((data) => (
 					<Card
-						desc={data.description}
 						image1={data.screenshots[0].Image}
 						image2={data.screenshots[1].Image}
 						image3={data?.screenshots[2]?.Image}

@@ -109,7 +109,11 @@ const H1 = styled(motion.h1)`
 		line-height: 3.5rem;
 	}
 	@media (max-width: 400px) {
-		font-size: 3.8rem;
+		font-size: 3.7rem;
+	}
+
+	@media (max-width: 340px) {
+		font-size: 3.6rem;
 	}
 `;
 

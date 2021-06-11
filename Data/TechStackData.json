@@ -14,7 +14,8 @@
 			"name": "Frameworks",
 			"screenshots": [
 				{ "Image": "/react_icon.png", "Width": 88, "Height": 121 },
-				{ "Image": "/nextjs_icon.png", "Width": 89, "Height": 127 }
+				{ "Image": "/nextjs_icon.png", "Width": 89, "Height": 127 },
+				{ "Image": "/redux_icon.png", "Width": 82, "Height": 115 }
 			]
 		},
 		{

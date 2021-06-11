@@ -37,5 +37,3 @@ const Container = styled.div`
 		margin: 0 9vw;
 	}
 `;
-
-const OverallContainer = styled(motion.div)``;

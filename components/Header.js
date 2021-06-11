@@ -28,7 +28,7 @@ export default function Header() {
 							</Link>
 						</Li>
 						<Li>
-							<Link href='/'>
+							<Link href='/blog'>
 								<a>Blog</a>
 							</Link>
 						</Li>

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { scrollRevealChildren } from '../utils/animations';
 
 export default function Card({
-	desc,
 	image1,
 	image2,
 	image3,
@@ -32,29 +31,28 @@ export default function Card({
 				animate={controls}
 				initial='hidden'
 			>
-				<div>
+				<ImageContainer
+					src={`${image1}`}
+					height={image1Height}
+					width={image1Width}
+					mr={image3 === undefined ? '0.5rem' : ''}
+				/>
+				{image3 !== undefined && (
 					<ImageContainer
-						src={`${image1}`}
-						height={image1Height}
-						width={image1Width}
-						mr={image3 === undefined ? '0.5rem' : ''}
+						src={`${image3}`}
+						height={image3Height}
+						width={image3Width}
+						mr={'0.4rem'}
+						ml={'0.4rem'}
 					/>
-					{image3 !== undefined && (
-						<ImageContainer
-							src={`${image3}`}
-							height={image3Height}
-							width={image3Width}
-						/>
-					)}
+				)}
 
-					<ImageContainer
-						src={`${image2}`}
-						height={image2Height}
-						width={image2Width}
-						ml={image3 === undefined ? '0.5rem' : ''}
-					/>
-				</div>
-				<p>{desc}</p>
+				<ImageContainer
+					src={`${image2}`}
+					height={image2Height}
+					width={image2Width}
+					ml={image3 === undefined ? '0.5rem' : ''}
+				/>
 			</CardContainer>
 		</div>
 	);
@@ -65,12 +63,12 @@ const CardContainer = styled(motion.div)`
 	border-radius: 20px;
 	border-radius: 20px;
 	border-radius: 40px;
-	width: 20rem;
+	width: 21rem;
 	min-height: 20rem;
 	color: #fcfcfc;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+
+	justify-content: space-around;
 	align-items: center;
 	padding: 10px 20px;
 	text-align: center;
