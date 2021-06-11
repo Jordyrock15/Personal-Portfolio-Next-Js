@@ -1,0 +1,24 @@
+{
+	"PersonalData": [
+		{
+			"ID": 0,
+			"name": "Netflix Clone",
+			"TechStack": [
+				{ "TechName": "React.Js" },
+				{ "TechName": "SCSS" },
+				{ "TechName": "FireBase" },
+				{ "TechName": "CSS" }
+			]
+		},
+		{
+			"ID": 1,
+			"name": "Personal Blog",
+			"TechStack": [
+				{ "TechName": "Next.Js" },
+				{ "TechName": "SCSS" },
+				{ "TechName": "Styled-Components" },
+				{ "TechName": "Strapi" }
+			]
+		}
+	]
+}
