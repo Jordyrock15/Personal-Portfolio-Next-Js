@@ -3,6 +3,10 @@ import fetchFromStrapi from '../../lib/service';
 import Image from 'next/image';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+import remarkToc from 'remark-toc';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
+import gfm from 'remark-gfm';
 import { useState } from 'react';
 
 export default function PortfolioItem({ portfolioArray }) {
@@ -20,7 +24,12 @@ export default function PortfolioItem({ portfolioArray }) {
 					height={portfolioArray.image.formats.large.height}
 				/>
 				<DescContainer>
-					<ReactMarkdown>{portfolioArray.content}</ReactMarkdown>
+					<ReactMarkdown
+						remarkPlugins={[remarkToc, gfm]}
+						rehypePlugins={[rehypeRaw, rehypeSanitize]}
+					>
+						{portfolioArray.content}
+					</ReactMarkdown>
 				</DescContainer>
 			</Container>
 
@@ -37,22 +46,30 @@ export default function PortfolioItem({ portfolioArray }) {
 				))}
 			</ScreenshotContainer>
 			{indexNumber !== null && (
-				<div>
+				<ImageContainer>
 					{console.log(indexNumber)}
-					<Image
-						src={`${portfolioArray.Screenshots[indexNumber].formats.large.url}`}
-						width={portfolioArray.Screenshots[indexNumber].formats.large.width}
-						height={portfolioArray.Screenshots[indexNumber].formats.large.height}
-					/>
-				</div>
+					<ImageBorder>
+						<Image
+							src={`${portfolioArray.Screenshots[indexNumber].formats.large.url}`}
+							width={portfolioArray.Screenshots[indexNumber].formats.large.width}
+							height={portfolioArray.Screenshots[indexNumber].formats.large.height}
+							className='ModalImage'
+						/>
+						<ModalClose onClick={() => setIndexNumber(null)}>Close</ModalClose>
+					</ImageBorder>
+				</ImageContainer>
 			)}
 
 			<ButtonContainer>
 				<Button color='#fcfcfc' bg='#0d6eff'>
-					Live Website
+					<a href={`${portfolioArray.LiveWebsite}`} target='_blank'>
+						Live Website
+					</a>
 				</Button>
 				<Button color='#0d6eff' bg='#fcfcfc' ml='1rem'>
-					Source Code
+					<a href={`${portfolioArray.SourceCode}`} target='_blank'>
+						Source Code
+					</a>
 				</Button>
 			</ButtonContainer>
 		</Layout>
@@ -63,11 +80,31 @@ const Container = styled.div`
 	color: #fcfcfc;
 `;
 
+const ImageContainer = styled.div`
+	position: fixed;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100vw;
+	height: 100vh;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const ImageBorder = styled.div`
+	margin-left: 3rem;
+	margin-right: 3rem;
+	position: relative;
+`;
+
 const ScreenshotContainer = styled.div`
 	margin-top: 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
+	cursor: pointer;
 `;
 
 const H1 = styled.h1`
@@ -75,6 +112,23 @@ const H1 = styled.h1`
 	font-size: 3rem;
 	margin-bottom: 2rem;
 	margin-top: 2rem;
+`;
+
+const ModalClose = styled.h1`
+	color: #fcfcfc;
+	position: absolute;
+	top: 3%;
+	right: 3%;
+	font-size: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	padding-bottom: 3px;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	border-radius: 5px;
+	background: #ff0000;
 `;
 
 const H2 = styled.h2`
