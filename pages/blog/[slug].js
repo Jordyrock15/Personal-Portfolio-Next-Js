@@ -3,6 +3,10 @@ import ReactMarkdown from 'react-markdown';
 import Layout from '../../components/Layout';
 import fetchFromStrapi from '../../lib/service';
 import styled from 'styled-components';
+import remarkToc from 'remark-toc';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
+import gfm from 'remark-gfm';
 
 export default function BlogItem({ blog }) {
 	return (
@@ -19,7 +23,12 @@ export default function BlogItem({ blog }) {
 					height={blog.image.formats.large.height}
 				/>
 				<TextContainer>
-					<ReactMarkdown children={blog.content}></ReactMarkdown>
+					<ReactMarkdown
+						remarkPlugins={[remarkToc, gfm]}
+						rehypePlugins={[rehypeRaw, rehypeSanitize]}
+					>
+						{blog.content}
+					</ReactMarkdown>
 				</TextContainer>
 			</Container>
 		</Layout>

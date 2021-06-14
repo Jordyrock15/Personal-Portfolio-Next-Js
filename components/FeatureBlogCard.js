@@ -30,9 +30,13 @@ export default function FeatureBlogCard({ blog }) {
 const Container = styled.div`
 	display: flex;
 	margin-bottom: 4rem;
+
+	@media (max-width: 1175px) {
+		flex-direction: column;
+	}
 `;
 
-const TagContainer = styled.h2`
+const TagContainer = styled.div`
 	color: #fcfcfc;
 	display: flex;
 	align-items: center;
@@ -60,6 +64,10 @@ const TextContainer = styled.div`
 	justify-content: space-evenly;
 	margin-left: 4rem;
 	width: 20rem;
+
+	@media (max-width: 1230px) {
+		margin-left: 2rem;
+	}
 `;
 
 const H1 = styled.h1`

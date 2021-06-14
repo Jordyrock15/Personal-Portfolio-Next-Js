@@ -31,7 +31,7 @@ const Container = styled.div`
 	margin-bottom: 2rem;
 `;
 
-const TagContainer = styled.h2`
+const TagContainer = styled.div`
 	color: #fcfcfc;
 	display: flex;
 	align-items: center;
@@ -59,6 +59,10 @@ const TextContainer = styled.div`
 	justify-content: space-evenly;
 	margin-left: 4rem;
 	width: 20rem;
+
+	@media (max-width: 1230px) {
+		margin-left: 2rem;
+	}
 `;
 
 const H1 = styled.h1`
