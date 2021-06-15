@@ -37,13 +37,14 @@ export default function PortfolioItem({ portfolioArray }) {
 			<H2>Screenshots</H2>
 			<ScreenshotContainer>
 				{portfolioArray.Screenshots.map((screenshot, index) => (
-					<Image
-						src={`${screenshot.formats.thumbnail.url}`}
-						width={screenshot.formats.thumbnail.width}
-						height={screenshot.formats.thumbnail.height}
-						onClick={() => setIndexNumber(index)}
-						key={screenshot.formats.thumbnail.url}
-					/>
+					<ScreenshotImageContainer key={screenshot.formats.thumbnail.url}>
+						<Image
+							src={`${screenshot.formats.thumbnail.url}`}
+							width={screenshot.formats.thumbnail.width}
+							height={screenshot.formats.thumbnail.height}
+							onClick={() => setIndexNumber(index)}
+						/>
+					</ScreenshotImageContainer>
 				))}
 			</ScreenshotContainer>
 			{indexNumber !== null && (
@@ -84,6 +85,10 @@ export default function PortfolioItem({ portfolioArray }) {
 
 const Container = styled(motion.div)`
 	color: #fcfcfc;
+`;
+
+const ScreenshotImageContainer = styled.div`
+	margin: 0.5rem;
 `;
 
 const ImageContainer = styled.div`
@@ -159,6 +164,7 @@ const DescContainer = styled.div`
 const ButtonContainer = styled.div`
 	display: flex;
 	margin-top: 2rem;
+	margin-bottom: 2rem;
 `;
 
 const Button = styled.button`
