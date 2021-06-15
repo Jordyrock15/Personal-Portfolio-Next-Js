@@ -18,10 +18,9 @@ export default function AboutMe() {
 			<TextContainer variants={scrollReveal} ref={ref} animate={controls} initial='hidden'>
 				<H2>&#60; Get to know me /&#62;</H2>
 				<P>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis erat pellentesque
-					ornare cursus leo praesent facilisi aliquet sem. Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit. Felis erat pellentesque ornare cursus leo praesent
-					facilisi aliquet sem.
+					Hey! I'm Jordan, a 20 year old from the United Kingdom, who's currently aspirie
+					to be a Web Developer / Software Engineer. My goal is to solve problems for
+					those who can't and to create products which makes life easier!
 				</P>
 			</TextContainer>
 		</Container>

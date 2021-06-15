@@ -18,7 +18,9 @@ export default function Contact() {
 				<H2>&#60; Contact /&#62;</H2>
 				<TextContainer>
 					<P>Need to get in touch?</P>
-					<Button>Send An Email</Button>
+					<Button>
+						<a href='mailto:Jordan.Barrand@outlook.com'>Send An Email</a>
+					</Button>
 				</TextContainer>
 			</Container>
 		</div>

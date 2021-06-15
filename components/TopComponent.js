@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import Link from 'next/link';
 import Image from 'next/image';
 import useWindowDimensions from '../Hooks/useWindowDimensions';
 import { motion } from 'framer-motion';
@@ -22,10 +22,12 @@ export default function TopComponent() {
 
 					<ButtonContainer variants={BorderAnimationChildren}>
 						<Button bg_color='#0D6EFF' color='#FCFCFC'>
-							Get In Touch
+							<a href='mailto:Jordan.Barrand@outlook.com'>Get In Touch</a>
 						</Button>
 						<Button bg_color='#FCFCFC' color='#0D6EFF' margin_left='1rem'>
-							My Work
+							<Link href='/portfolio'>
+								<a>My Work</a>
+							</Link>
 						</Button>
 					</ButtonContainer>
 				</TitleContainer>
