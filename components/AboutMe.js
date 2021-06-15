@@ -18,9 +18,9 @@ export default function AboutMe() {
 			<TextContainer variants={scrollReveal} ref={ref} animate={controls} initial='hidden'>
 				<H2>&#60; Get to know me /&#62;</H2>
 				<P>
-					Hey! I'm Jordan, a 20 year old from the United Kingdom, who's currently aspiring
-					to be a Web Developer / Software Enginee. My goal is to solve problems for
-					those who can't and to create products which makes life easier!
+					Hey! I'm Jordan, a 20 year old from the United Kingdom! Who's currently aspiring
+					to be a Web Developer / Software Engineer. My goal is to solve problems for
+					those who can't and to create products which makes life easier.
 				</P>
 			</TextContainer>
 		</Container>
@@ -34,6 +34,7 @@ const Container = styled.div`
 
 const TextContainer = styled(motion.div)`
 	margin-left: 4rem;
+
 	@media (max-width: 730px) {
 		margin-left: 0;
 	}
@@ -63,6 +64,7 @@ const P = styled.p`
 	font-weight: normal;
 	font-family: 'Open Sans', sans-serif;
 
+	margin-top: 0.5rem;
 	@media (max-width: 630px) {
 		font-size: 1rem;
 	}
