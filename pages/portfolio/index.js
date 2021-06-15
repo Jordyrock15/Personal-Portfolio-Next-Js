@@ -1,14 +1,15 @@
 import Layout from '../../components/Layout';
 import styled from 'styled-components';
 import PortfolioCard from '../../components/PortfolioCard';
-const { PersonalData } = require('../../Data/DummyData.json');
+
 import fetchFromStrapi from '../../lib/service';
-import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { BorderAnimation } from '../../utils/animations';
 
 export default function Portfolio({ portfolioItems, teamPortfolioItems, coursePortfolioItems }) {
 	return (
 		<Layout>
-			<Container>
+			<Container variants={BorderAnimation} animate='show' initial='hidden'>
 				<H1>Personal Projects</H1>
 				<CardContainer>
 					{portfolioItems.map((data) => (
@@ -60,7 +61,7 @@ export async function getStaticProps() {
 	};
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 	@media (max-width: 700px) {
 		display: flex;
 		flex-direction: column;

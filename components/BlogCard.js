@@ -6,8 +6,6 @@ import useWindowDimensions from '../Hooks/useWindowDimensions';
 export default function BlogCard({ blogs }) {
 	const { height, width } = useWindowDimensions();
 
-	console.log(width);
-
 	return (
 		<Container>
 			<Image
@@ -41,10 +39,17 @@ export default function BlogCard({ blogs }) {
 
 const Container = styled.div`
 	display: flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	margin-bottom: 2rem;
 	align-items: center;
 
 	@media (max-width: 890px) {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
 		flex-direction: column;
 		align-items: flex-start;
 	}
@@ -53,6 +58,10 @@ const Container = styled.div`
 const TagContainer = styled.div`
 	color: #fcfcfc;
 	display: flex;
+	display: flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	align-items: center;
 	font-family: 'Open Sans', sans-serif;
 
@@ -87,6 +96,14 @@ const Date = styled.h2`
 
 const TextContainer = styled.div`
 	display: flex;
+	display: flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
 	flex-direction: column;
 	justify-content: space-evenly;
 	margin-left: 4rem;

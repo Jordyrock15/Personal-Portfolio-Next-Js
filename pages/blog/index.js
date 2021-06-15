@@ -3,26 +3,30 @@ import styled from 'styled-components';
 import fetchFromStrapi from '../../lib/service';
 import BlogCard from '../../components/BlogCard';
 import FeatureBlogCard from '../../components/FeatureBlogCard';
+import { motion } from 'framer-motion';
+import { BorderAnimation } from '../../utils/animations';
 
 export default function Blog({ blogItems }) {
-	let blogArray = blogItems.slice(0, -1);
-
 	return (
 		<Layout>
-			<H1>The Blog</H1>
-			<H2>Featured</H2>
-			<FeatureBlogCard blog={blogItems[blogItems.length - 1]} />
+			<Container variants={BorderAnimation} animate='show' initial='hidden'>
+				<H1>The Blog</H1>
+				<H2>Featured</H2>
+				<FeatureBlogCard blog={blogItems[Math.floor(Math.random() * blogItems.length)]} />
 
-			<Line></Line>
+				<Line></Line>
 
-			<BlogItemContainer>
-				{blogArray.map((blogs) => (
-					<BlogCard blogs={blogs} key={blogs.id} />
-				))}
-			</BlogItemContainer>
+				<BlogItemContainer>
+					{blogItems.map((blogs) => (
+						<BlogCard blogs={blogs} key={blogs.id} />
+					))}
+				</BlogItemContainer>
+			</Container>
 		</Layout>
 	);
 }
+
+const Container = styled(motion.div)``;
 
 const H1 = styled.div`
 	font-family: 'Montserrat', sans-serif;
@@ -69,8 +73,15 @@ const BlogItemContainer = styled.div`
 	display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
 	flex-wrap: wrap;
 	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
 
 	@media (max-width: 1920px) {
+		-webkit-box-orient: horizontal;
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
 		flex-direction: row;
 	}
 `;

@@ -9,14 +9,15 @@ import rehypeSanitize from 'rehype-sanitize';
 import gfm from 'remark-gfm';
 import { useState } from 'react';
 
+import { motion } from 'framer-motion';
+import { BorderAnimation } from '../../utils/animations';
+
 export default function PortfolioItem({ portfolioArray }) {
-	const [isModal, setIsModal] = useState(false);
 	const [indexNumber, setIndexNumber] = useState(null);
 
-	console.log(portfolioArray);
 	return (
 		<Layout>
-			<Container>
+			<Container variants={BorderAnimation} animate='show' initial='hidden'>
 				<H1>{portfolioArray.Headline}</H1>
 				<Image
 					src={`${portfolioArray.image.formats.large.url}`}
@@ -46,7 +47,7 @@ export default function PortfolioItem({ portfolioArray }) {
 				))}
 			</ScreenshotContainer>
 			{indexNumber !== null && (
-				<ImageContainer>
+				<ImageContainer onClick={() => setIndexNumber(null)}>
 					{console.log(indexNumber)}
 					<ImageBorder>
 						<Image
@@ -61,22 +62,27 @@ export default function PortfolioItem({ portfolioArray }) {
 			)}
 
 			<ButtonContainer>
-				<Button color='#fcfcfc' bg='#0d6eff'>
-					<a href={`${portfolioArray.LiveWebsite}`} target='_blank'>
-						Live Website
-					</a>
-				</Button>
-				<Button color='#0d6eff' bg='#fcfcfc' ml='1rem'>
-					<a href={`${portfolioArray.SourceCode}`} target='_blank'>
-						Source Code
-					</a>
-				</Button>
+				{portfolioArray.LiveWebsite !== null && (
+					<Button color='#fcfcfc' bg='#0d6eff'>
+						<a href={`${portfolioArray.LiveWebsite}`} target='_blank'>
+							Live Website
+						</a>
+					</Button>
+				)}
+
+				{portfolioArray.SourceCode !== null && (
+					<Button color='#0d6eff' bg='#fcfcfc' ml='1rem'>
+						<a href={`${portfolioArray.SourceCode}`} target='_blank'>
+							Source Code
+						</a>
+					</Button>
+				)}
 			</ButtonContainer>
 		</Layout>
 	);
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 	color: #fcfcfc;
 `;
 
