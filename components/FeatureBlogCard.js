@@ -3,7 +3,6 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export default function FeatureBlogCard({ blog }) {
-	console.log(blog);
 	return (
 		<Container>
 			<Image
@@ -40,7 +39,7 @@ const TagContainer = styled.div`
 	color: #fcfcfc;
 	display: flex;
 	align-items: center;
-
+	margin-bottom: 1.2rem;
 	font-family: 'Open Sans', sans-serif;
 
 	@media (max-width: 1175px) {
@@ -74,7 +73,7 @@ const Date = styled.h2`
 const TextContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
 	margin-left: 4rem;
 	width: 20rem;
 
@@ -93,6 +92,7 @@ const H1 = styled.h1`
 	color: #fcfcfc;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 2rem;
+	margin-bottom: 0.8rem;
 	font-weight: bold;
 `;
 
@@ -114,6 +114,7 @@ const Button = styled.button`
 	bottom: 10px;
 	cursor: pointer;
 	width: 7rem;
+	margin-top: 1rem;
 
 	@media (max-width: 1175px) {
 		margin-top: 1rem;

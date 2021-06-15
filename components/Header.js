@@ -3,15 +3,14 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { SlideInRight, SlideInUp } from '../utils/animations';
-import ActiveLink from './ActiveLink';
 
 export default function Header() {
 	return (
 		<Container>
 			<Link href='/'>
-				<motion.a variants={SlideInRight} animate='show' initial='hidden'>
+				<A variants={SlideInRight} animate='show' initial='hidden'>
 					<Image src='/navbar_logo.svg' width={85} height={85} alt='Navbar Logo' />
-				</motion.a>
+				</A>
 			</Link>
 
 			<Hide>
@@ -38,6 +37,10 @@ export default function Header() {
 		</Container>
 	);
 }
+
+const A = styled(motion.div)`
+	cursor: pointer;
+`;
 
 const Container = styled.header`
 	background: #1e1e1e;

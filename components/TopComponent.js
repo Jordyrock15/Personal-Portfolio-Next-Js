@@ -7,7 +7,6 @@ import { BorderAnimation, BorderAnimationChildren, SlideInLeft } from '../utils/
 
 export default function TopComponent() {
 	const { height, width } = useWindowDimensions();
-	console.log(width);
 
 	return (
 		<Container variants={BorderAnimation} animate='show' initial='hidden'>

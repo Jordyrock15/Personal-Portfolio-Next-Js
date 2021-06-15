@@ -1,8 +1,20 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 export default function Footer() {
 	return (
 		<FooterContainer>
+			<SocialContainer>
+				<a href='https://github.com/Jordyrock15' target='_blank'>
+					<Image src='/github_icon.png' width='50' height='50'></Image>
+				</a>
+				<a href='https://www.linkedin.com/in/jordan-barrand-b13725206/' target='_blank'>
+					<Image src='/linkedin_icon.png' width='50' height='50'></Image>
+				</a>
+				<a href='https://www.instagram.com/jordan.barrand/' target='_blank'>
+					<Image src='/instagram_icon.png' width='50' height='50'></Image>
+				</a>
+			</SocialContainer>
 			<Paragraph>
 				<Span>&copy;</Span> 2021 Jordan Barrand All rights reserved
 			</Paragraph>
@@ -10,11 +22,19 @@ export default function Footer() {
 	);
 }
 
+const SocialContainer = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 15rem;
+`;
+
 const FooterContainer = styled.footer`
 	background: #1e1e1e;
 	min-height: 40px;
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 	justify-content: center;
 `;
 

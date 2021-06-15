@@ -7,16 +7,16 @@ import remarkToc from 'remark-toc';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import gfm from 'remark-gfm';
+import { motion } from 'framer-motion';
+import { BorderAnimation } from '../../utils/animations';
 
 export default function BlogItem({ blog }) {
 	return (
 		<Layout>
-			<Container>
+			<Container variants={BorderAnimation} animate='show' initial='hidden'>
 				<H1>{blog.Headline}</H1>
 				<H2>{blog.ShortHeadline}</H2>
-				{/* <h3>
-					{blog.date} {blog.TypeOfBlog}
-				</h3> */}
+
 				<Image
 					src={`${blog.image.formats.large.url}`}
 					width={blog.image.formats.large.width}
@@ -35,7 +35,7 @@ export default function BlogItem({ blog }) {
 	);
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 	color: #fcfcfc;
 	margin-top: 2rem;
 `;
