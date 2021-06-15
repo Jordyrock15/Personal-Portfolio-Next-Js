@@ -38,6 +38,14 @@ const Card = styled.div`
 	&:hover {
 		border: 1px solid #fcfcfc;
 	}
+
+	@media (max-width: 700px) {
+		width: 18rem;
+	}
+
+	@media (max-width: 380px) {
+		width: 16rem;
+	}
 `;
 
 const H1 = styled.div`
@@ -45,6 +53,10 @@ const H1 = styled.div`
 	font-weight: bold;
 	font-size: 2rem;
 	margin-bottom: 1rem;
+
+	@media (max-width: 700px) {
+		font-size: 1.6rem;
+	}
 `;
 
 const UL = styled.ul`

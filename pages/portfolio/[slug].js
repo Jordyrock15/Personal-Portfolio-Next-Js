@@ -112,6 +112,10 @@ const H1 = styled.h1`
 	font-size: 3rem;
 	margin-bottom: 2rem;
 	margin-top: 2rem;
+
+	@media (max-width: 770px) {
+		font-size: 2rem;
+	}
 `;
 
 const ModalClose = styled.h1`
@@ -139,6 +143,11 @@ const H2 = styled.h2`
 const DescContainer = styled.div`
 	font-family: 'Open Sans', sans-serif;
 	margin-top: 2rem;
+	font-size: 1rem;
+
+	@media (max-width: 400px) {
+		font-size: 0.8rem;
+	}
 `;
 
 const ButtonContainer = styled.div`

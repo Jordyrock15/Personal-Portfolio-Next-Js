@@ -42,6 +42,10 @@ const TagContainer = styled.div`
 	align-items: center;
 
 	font-family: 'Open Sans', sans-serif;
+
+	@media (max-width: 1175px) {
+		margin-bottom: 1rem;
+	}
 `;
 
 const Tag = styled.h2`
@@ -50,12 +54,21 @@ const Tag = styled.h2`
 	color: #0d6eff;
 	padding: 5px 10px;
 	border-radius: 10px;
+
+	@media (max-width: 1175px) {
+		font-size: 0.7rem;
+	}
 `;
 
 const Date = styled.h2`
 	font-size: 0.8rem;
 	margin-left: 1rem;
 	color: #0d6eff;
+
+	@media (max-width: 1175px) {
+		font-size: 0.7rem;
+		margin-left: 0.8rem;
+	}
 `;
 
 const TextContainer = styled.div`
@@ -67,6 +80,12 @@ const TextContainer = styled.div`
 
 	@media (max-width: 1230px) {
 		margin-left: 2rem;
+	}
+
+	@media (max-width: 1175px) {
+		width: 100%;
+		margin-top: 1rem;
+		margin-left: 0;
 	}
 `;
 
@@ -95,4 +114,8 @@ const Button = styled.button`
 	bottom: 10px;
 	cursor: pointer;
 	width: 7rem;
+
+	@media (max-width: 1175px) {
+		margin-top: 1rem;
+	}
 `;

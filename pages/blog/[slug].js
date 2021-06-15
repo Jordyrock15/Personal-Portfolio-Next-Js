@@ -44,6 +44,18 @@ const H1 = styled.h1`
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
 	font-size: 3.5rem;
+
+	@media (max-width: 925px) {
+		font-size: 3rem;
+	}
+
+	@media (max-width: 750px) {
+		font-size: 2.5rem;
+	}
+
+	@media (max-width: 500px) {
+		font-size: 2rem;
+	}
 `;
 
 const H2 = styled.h2`
@@ -51,11 +63,22 @@ const H2 = styled.h2`
 	font-weight: normal;
 	font-size: 2rem;
 	margin-bottom: 2rem;
+	@media (max-width: 750px) {
+		font-size: 1.5rem;
+	}
+
+	@media (max-width: 500px) {
+		font-size: 1.3rem;
+	}
 `;
 
 const TextContainer = styled.div`
 	font-family: 'Open Sans', sans-serif;
 	margin-top: 2rem;
+
+	@media (max-width: 500px) {
+		font-size: 0.8rem;
+	}
 `;
 
 export async function getStaticPaths() {
