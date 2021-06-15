@@ -1,6 +1,6 @@
-import Card from './card';
+import Card from './Card';
 import styled from 'styled-components';
-import Image from 'next/image';
+
 const { Tech } = require('../Data/TechStackData.json');
 
 import { scrollRevealChildren, scrollRevealRight } from '../utils/animations';
