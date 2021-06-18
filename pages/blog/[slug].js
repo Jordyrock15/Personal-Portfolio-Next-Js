@@ -38,6 +38,7 @@ export default function BlogItem({ blog }) {
 const Container = styled(motion.div)`
 	color: #fcfcfc;
 	margin-top: 2rem;
+	margin-bottom: 2rem;
 `;
 
 const H1 = styled.h1`
