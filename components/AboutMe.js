@@ -20,7 +20,7 @@ export default function AboutMe() {
 				<P>
 					Hey! I'm Jordan, a 20 year old from the U.K, who is currently aspiring to be a
 					Web Developer / Software Engineer. My goal is to solve problems for people who
-					can't and to create products which make life easier.
+					can't and to create products that make life easier.
 				</P>
 			</TextContainer>
 		</Container>

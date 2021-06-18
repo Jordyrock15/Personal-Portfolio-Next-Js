@@ -10,6 +10,7 @@ export default function Layout({ title, keywords, description, children }) {
 	return (
 		<div>
 			<Head>
+				<link rel='shortcut icon' href='/navbar_logo.svg'></link>
 				<title>{title}</title>
 				<meta name='description' content={description} />
 				<meta name='keywords' content={keywords} />

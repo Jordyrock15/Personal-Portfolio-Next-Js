@@ -45,7 +45,6 @@ const H1 = styled.h1`
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
 	font-size: 3.5rem;
-
 	@media (max-width: 925px) {
 		font-size: 3rem;
 	}
